@@ -1,0 +1,2 @@
+class Disappearance < ApplicationRecord
+end
