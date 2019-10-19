@@ -1,0 +1,2 @@
+class DisappearancesController < ApplicationController
+end
