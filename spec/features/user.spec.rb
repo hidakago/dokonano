@@ -29,6 +29,7 @@ RSpec.feature "ユーザー登録機能", type: :feature do
     find(".signup").click
 
     expect(page).to have_content "アカウント登録が完了しました。"
+    expect(page).to have_content "disappearances.index"
     # save_and_open_page
   end
 
@@ -51,6 +52,24 @@ RSpec.feature "ユーザー登録機能", type: :feature do
     find(".login").click
 
     expect(page).to have_content "ログインしました。"
+    expect(page).to have_content "disappearances.index"
+  end
+
+  scenario "ログアウトのテスト" do
+    visit new_user_session_path
+
+    find(".email").set("test6@mail.com")
+    find(".password").set("5suke5suke")
+    find(".login").click
+
+    expect(page).to have_content "ログインしました。"
+    expect(page).to have_content "disappearances.index"
+
+    find(".logout").click
+
+    expect(page).to have_content "ログアウトしました。"
+    expect(page).to have_content "Log in"
+
     save_and_open_page
   end
   # scenario "タスク作成のテスト" do
